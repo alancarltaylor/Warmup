@@ -1,0 +1,26 @@
+var examples = [
+  (1 != 2) === true,
+  (1 != "1") === false,
+  (1 != '1') === false,
+  (1 != true) === false,
+  (0 != false) === false,
+  (3 === 3) === true,
+  (3 === '3') === false,
+  (4 >= 3) === true,
+  (4 >= '3') === true,
+  ('4' == 4) === true,
+  ('string' == 'String') === false,
+  ('4' > 40) === false,
+]
+
+var test = {score: 0, problems: 0};
+examples.map(function(example, idx) {
+  if(example) test.score++;
+  test.problems++;
+});
+
+if(test.score === test.problems){
+  console.log('Correct: '+test.score, 'Hey you got them all right!');
+} else {
+  console.log('Correct: '+test.score, 'but, looks like you got '+(test.problems-test.score)+' wrong. So try again!');
+}

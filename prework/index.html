@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning jQuery</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.slim.min.js"></script>
+</head>
+<body>
+<h1>Let's learn JQuery</h1>
+
+<div class="stuff">class stuff 1</div>
+<div class="stuff">class stuff 2</div>
+<div class="stuff">class stuff 3</div>
+
+<hr>
+
+<div id="cookies-1">ID cookies 1</div>
+<div id="cookies-2">ID cookies 2</div>
+<div id="cookies-3">ID cookies 3</div>
+
+<input type="button" name="cookie-button" value="Click Me">
+<input type="checkbox" name="name" value="" checked>
+
+<script type ="text/javascript">
+// $(function(){
+// var button = $('input[type="button"]').on("click", function(){
+//   console.log(this.name, this.value);
+// });
+
+$('#cookies-1').on('mouseover', function(){
+  console.log('hovering');
+  $(this).css({color: 'red', 'border-bottom': '1px solid red'})
+})
+//.on('mouseleave', function(){
+//   $(this).css({color: 'black', 'border-bottom': '1px solid red'})
+// })
+
+//});
+</script>
+
+
+</body>
+</html>
