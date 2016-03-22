@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.slim.min.js"></script>
+</head>
+<body>
+<form id="myName" method="post">
+  First Name: <input type="text" name="fname" maxlength= "5" pattern="[a-z]*" required>
+  Last Name: <input type="text" name="lname" maxlength= "5" pattern="[a-z]*" required>
+
+  <input type="submit" value="send">
+
+</form>
+<script type="text/javascript">
+  $("#myName").on("submit", function(e){
+  e.preventDefault();
+  var form = $(this);
+
+
+
+  var fn = this[0]
+
+
+
+
+  var firstName = $(fn).val()
+  var ln = this[1]
+  var lastName = $(ln).val()
+    console.log($(fn).val());
+    console.log($(ln).val());
+
+    if ((firstName.length <= 5) && (firstName.match(/[0-9]/) === null)){
+      console.log("yes, valid");
+  } else {
+    alert ("wtf")
+  }
+
+});
+</script>
+
+
+</body>
+</html>

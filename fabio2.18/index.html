@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Page</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <style>
+
+  .container{
+    text-align:center;
+    width: 50%;
+  }
+  img {
+    height: 250px;
+
+    margin-top: 40px;
+
+
+  }
+  nav:nth-child(even) {
+    border: solid 2px black;
+    padding-bottom: 1%;
+    background-color: grey;
+    margin-bottom: 10px;
+  }
+  nav:nth-child(odd) {
+    border: solid 2px black;
+    padding-top: 1%;
+    background-color: blue;
+    font-size: 18px;
+    font-weight: bold;
+    height: 300px;
+
+  }
+
+
+  </style>
+</head>
+<body>
+<h1>My Movie Page</h1>
+
+<div class="container">
+
+</div>
+
+  <script type="text/javascript">
+var movieTitles = ['leaving las vegas', 'toy story', 'life of pi', 'the godfather', 'forrest gump', 'striptease', 'showgirls', 'edward scissorhands', 'the revenant'];
+displayMovie(movieTitles)
+
+function displayMovie (myArray){
+  function getMovies (movie){
+  $.ajax({
+    url: 'https://www.omdbapi.com/?t='+movie,
+    method: "GET",
+    success: function(d){
+      var actors = d.Actors;
+      var Title = d.Title;
+      var poster = d.Poster;
+      $('.container').append("<nav id="+movie+"1><img src="+poster+">"+Title+"</nav><nav id="+movie+"2>"+actors+"</nav>")
+
+      console.log(d);
+
+      }
+  })
+  }
+
+    for (var i = 0; i < myArray.length; i ++){
+      var title = movieTitles[i];
+      getMovies(title)
+  }
+
+}
+
+
+
+  </script>
+
+</body>
+</html>
